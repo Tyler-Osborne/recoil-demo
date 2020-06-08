@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
-import Example from "./components/Example"
+import React, { Component } from "react";
+import { render } from "react-dom";
+import Hello from "./Hello";
+import "./style.css";
+import Example from "./components/Example";
+import CharacterCounter from "./components/CharacterCounter";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue
+} from "recoil";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen
-        </p>
-        <Example />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <RecoilRoot>
+      <p>Enter some text and see how many characters it has</p>
+      <CharacterCounter />
+    </RecoilRoot>
+  );
 }
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));
